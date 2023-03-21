@@ -1,7 +1,10 @@
-<script setup lang="ts">
+<script>
 import Navbar from "~/src/components/layout/navbar.vue";
 import SideBar from "~/src/components/layout/sidebar.vue";
-import Content from "~/src/components/layout/content.vue";
+export default {
+  name: "Main",
+  components: {Navbar,SideBar}
+}
 </script>
 
 <template>
@@ -9,7 +12,8 @@ import Content from "~/src/components/layout/content.vue";
     <SideBar/>
     <div class="flex flex-col w-full">
       <Navbar/>
-      <content/>
+<!--      <NuxtLink to="/">Index</NuxtLink>-->
+<!--      <NuxtLink to="/warehouse">warehouse</NuxtLink>-->
     </div>
   </div>
 </template>

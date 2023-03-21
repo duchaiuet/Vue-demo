@@ -22,6 +22,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
-    "@mui/icons-material": "^5.11.11"
+    "@mui/icons-material": "^5.11.11",
+    "vue-material-design-icons": "^5.2.0"
   }
 }

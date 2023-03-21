@@ -9,4 +9,7 @@ export default defineNuxtConfig({
             autoprefixer: {},
         },
     },
+    // modules: [
+    //     'vue-material-design-icons',
+    // ],
 })
