@@ -1,8 +1,8 @@
 <template>
   <div >
     <div class="flex flex-row-reverse mr-4">
-      <button class="border-2 w-20 rounded-md px-4 py-2 bg-white text-black focus:ring-2 mt-1">
-        Add
+      <button class="border-2 rounded-full px-4 py-2 bg-white focus:ring-2 mt-1">
+        Add Product
       </button>
     </div>
     <TableCustom/>

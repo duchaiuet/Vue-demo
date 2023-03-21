@@ -9,7 +9,7 @@
       </tr>
       </thead>
       <tbody class="">
-      <tr class="bg-white border-b" v-for="(ele, index) in products" key="index">
+      <tr class="bg-white border-b" v-for="(ele, index) in products" :key="index">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
           {{ele.productName}}
         </th>
