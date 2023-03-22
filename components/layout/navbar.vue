@@ -30,8 +30,8 @@
     </button>
   </nav>
 </template>
-<script setup>
+<script>
 export default {
-
+  name: "navbar"
 }
 </script>

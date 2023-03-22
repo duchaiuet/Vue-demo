@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const getShowType = {
-    getCounter(state) {
+    getShowType(state) {
         return state.showType
     }
 }
@@ -15,10 +15,4 @@ export const mutations = {
 }
 
 export const actions = {
-    async fetchCounter({ state }) {
-        // make request
-        const res = { data: 10 };
-        state.counter = res.data;
-        return res.data;
-    }
 }
