@@ -1,22 +1,21 @@
 <template>
   <div class="flex">
     <div class="flex flex-row mr-4 w-1/2">
-      <h6 class="px-4 py-2 bg-green-100 rounded-lg focus:ring-2 mt-1 ">
+      <h6 class="px-4 py-2 border rounded-lg focus:ring-2 mt-1 ">
         Warehouse
       </h6>
     </div>
     <div class="flex flex-row-reverse mr-4 w-1/2">
-      <button class="border-2 rounded-full px-4 py-2 bg-white focus:ring-2 mt-1" @click="addProduct">
+      <button class="border-2 rounded-full px-4 py-2 bg-white focus:ring-2 mt-1"  @click="addProduct">
         Add Product
       </button>
     </div>
   </div>
 
 
-  <div class="relative shadow-md sm:rounded-lg py-2">
-    <div class=" overflow-y-scroll h-1/2">
+  <div class="relative shadow-md sm:rounded-lg py-2  overflow-y-scroll h-4/5 " style="height: 800px;">
       <table class="w-full text-sm text-left text-gray-500">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-100 sticky -top-2">
         <tr>
           <th v-for="(ele, index) in tableHeader" :key="index" :class="ele.class">
             {{ ele.name }}
@@ -50,50 +49,52 @@
         </tr>
         </tbody>
       </table>
-    </div>
-    <nav class="flex items-center justify-between p-3" aria-label="Table navigation">
+  </div>
+  <nav class="flex items-center justify-between p-3 sticky -top-2" aria-label="Table navigation">
       <span class="text-sm font-normal text-gray-500">Showing <span class="font-semibold text-gray-900 ">1-10</span> of <span
           class="font-semibold text-gray-900">1000</span></span>
-      <ul class="inline-flex items-center -space-x-px">
-        <li>
-          <a href="#"
-             class=" px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
-            Previous
-          </a>
-        </li>
-        <li>
-          <a href="#"
-             class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
-        </li>
-        <li>
-          <a href="#"
-             class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
-        </li>
-        <li>
-          <a href="#" aria-current="page"
-             class="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">3</a>
-        </li>
-        <li>
-          <a href="#"
-             class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">...</a>
-        </li>
-        <li>
-          <a href="#"
-             class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">100</a>
-        </li>
-        <li>
-          <a href="#"
-             class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">Next
-          </a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-
+    <ul class="inline-flex items-center -space-x-px">
+      <li>
+        <a href="#"
+           class=" px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700">
+          Previous
+        </a>
+      </li>
+      <li>
+        <a href="#"
+           class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">1</a>
+      </li>
+      <li>
+        <a href="#"
+           class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">2</a>
+      </li>
+      <li>
+        <a href="#" aria-current="page"
+           class="z-10 px-3 py-2 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700">3</a>
+      </li>
+      <li>
+        <a href="#"
+           class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">...</a>
+      </li>
+      <li>
+        <a href="#"
+           class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700">100</a>
+      </li>
+      <li>
+        <a href="#"
+           class="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700">Next
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <Modal :show="showModal"/>
 </template>
+
+
 
 <script>
 import ButtonGroup from "~/components/molecules/ButtonGroup.vue";
+import Modal from "~/components/molecules/Modal.vue";
 export default {
   props: {
   },
@@ -120,19 +121,27 @@ export default {
       actions: [
         {name: "", },
       ],
-      showModal: true,
+      showModal: false,
     }
   },
-  components: {ButtonGroup},
+  components: {ButtonGroup, Modal},
   methods: {
     addProduct() {
-      this.products.push({productName: "AirTag", color: "Silver", category: "Accessories", price: "29"});
+      this.showModal = true;
+      this.products.unshift({productName: "AirTag", color: "Silver", category: "Accessories", price: "29"});
     },
     deleteProduct(index) {
-      console.log("index: ", index)
       this.products.splice(index,1);
-      console.log("length: ", this.products.length)
     },
+  },
+  watch: {
+    '$data': {
+      handler: function(newValue) {
+        this.showModal = newValue.showModal
+        console.log("show modal: ", this.showModal)
+      },
+      deep: true
+    }
   }
 }
 

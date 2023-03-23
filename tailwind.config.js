@@ -10,6 +10,7 @@ module.exports = {
     "./node_modules/flowbite.{js,ts}",
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/flowbite.{js,ts}",
   ],
   theme: {
     extend: {},
@@ -19,5 +20,8 @@ module.exports = {
         { fontFeatureSettings: '"cv11", "ss01"' },
       ],
     },
-  }
+  },
+  plugins: [
+    require('flowbite')
+  ],
 }

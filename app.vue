@@ -188,9 +188,10 @@ import SideBar from "~/components/layout/sidebar.vue";
 import Content from "~/components/layout/content.vue";
 import WareHouse from "~/components/organisms/WareHouse.vue";
 import Product from "~/components/organisms/Product.vue";
+
 export default {
   name: "Main",
-  components: {Navbar,SideBar,Content, WareHouse, Product},
+  components: {Navbar,SideBar,Content, WareHouse, Product,},
   data () {
     return {
       showType: 0,

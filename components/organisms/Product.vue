@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <h6 class="px-4 py-2 bg-green-100 rounded-lg focus:ring-2 ml-2 my-1 ">
+    <h6 class="px-4 py-2 border rounded-lg focus:ring-2 ml-2 my-1 ">
       Products
     </h6>
   </div>
